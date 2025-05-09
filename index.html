@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Future Color</title>
+  <link href="./css/output.css" rel="stylesheet" />
+  <link href="./css/weather.css" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img src="./favicon.svg" alt="Logo" class="h-10 w-auto"> 
+        <h1 class="text-3xl font-bold tracking-tight">Future Color Simulator</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <div id="weather-display" class="p-4"></div>
+        <button id="hall-toggle" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-lg shadow transition-all duration-200">
+          Wissel Hall
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Ingrediëntenpaneel -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Ingrediënten</h2>
+      <button id="create-ingredient" class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg shadow-md transition-all duration-200 font-medium">
+        Nieuw ingrediënt
+      </button>
+      <div id="ingredients-container" class="mt-6 space-y-4">
+        <!-- Dynamisch toegevoegde ingrediënten -->
+      </div>
+    </section>
+
+    <!-- Pottenpaneel -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Potten</h2>
+      <button id="create-pot" class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg shadow-md transition-all duration-200 font-medium">
+        Nieuwe pot
+      </button>
+      <div id="pots-container" class="mt-6 space-y-4">
+        <!-- Dynamisch toegevoegde potten -->
+      </div>
+    </section>
+
+    <!-- Mengmachinespaneel -->
+    <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Mengmachines (Hall <span id="hall-number" class="text-blue-600">1</span>)</h2>
+      <button id="create-machine" class="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-3 rounded-lg shadow-md transition-all duration-200 font-medium">
+        Nieuwe machine
+      </button>
+      <div id="machines-container" class="mt-6 space-y-4">
+        <!-- Dynamisch toegevoegde machines -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Canvas (optioneel voor ingrediënten/potten tekenen) -->
+  <section class="container mx-auto p-8">
+    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Canvas visualisatie</h2>
+      <canvas id="visual-canvas" width="600" height="300" class="border-2 border-gray-200 rounded-lg w-full"></canvas>
+    </div>
+  </section>
+
+  <!-- Kleurentest grid -->
+  <section class="container mx-auto p-8">
+    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Kleurentest</h2>
+      <div class="flex items-center gap-4 mb-6">
+        <label for="grid-size" class="text-gray-700 font-medium">Gridgrootte (bijv. 6):</label>
+        <input type="number" id="grid-size" class="border-2 border-gray-200 rounded-lg px-3 py-2 w-24 focus:outline-none focus:border-blue-500" value="6" min="1" max="12">
+        <button id="create-grid" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg shadow-md transition-all duration-200 font-medium">
+          Maak grid
+        </button>
+      </div>
+      <div id="color-grid" class="grid gap-2 p-4 bg-gray-50 rounded-lg"></div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
